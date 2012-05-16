@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "table-lexer.h"
 
 int main(int argc, char *argv[]) {
 		while(1){
