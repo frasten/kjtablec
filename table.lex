@@ -7,8 +7,8 @@ char *newstring(char *s);
 %}
 %option noyywrap
 
-delimiter	[ \t\n]
-spacing 	{delimiter}+
+ws	[ \t\n]
+spacing 	{ws}+
 letter		 [A-Za-z]
 digit		 [0-9]
 intconst	{digit}+
