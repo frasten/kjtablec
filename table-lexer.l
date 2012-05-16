@@ -9,8 +9,8 @@ char *newstring(char *s);
 
 ws	[ \t\n]
 spacing 	{ws}+
-letter		 [A-Za-z]
-digit		 [0-9]
+letter		[A-Za-z]
+digit		[0-9]
 intconst	{digit}+
 strconst	\"([^\"])*\”
 boolconst	false|true
@@ -38,11 +38,4 @@ char *newstring(char *s)
   char *p = malloc(strlen(s)+1);
   strcpy(p,s);
   return(p);
-}
-
-int main() {
-	while(1){
-		printf("%d %s\n", yylex(), yytext );
-	}
-	return(0);
 }
