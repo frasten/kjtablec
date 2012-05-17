@@ -1,14 +1,14 @@
 %{
-	
+/* code block */
 #include "table-def.h"
 Lexval lexval;
 char *newstring(char *s);
-
 %}
-%option noyywrap
 
-ws	[ \t\n]
-spacing 	{ws}+
+/* Definitions Section */
+%option noyywrap
+blank		[ \t\n]
+ws		 	{blank}+
 letter		[A-Za-z]
 digit		[0-9]
 intconst	{digit}+
@@ -18,7 +18,8 @@ id			{letter}({letter}|{digit})*
 
 %%
 
-{spacing}	;
+/* Rules Section */
+{ws}		;
 int			{return(INT);}
 string 		{return(STR);}
 boolean	 	{return(BOOL);}
@@ -33,6 +34,7 @@ boolean	 	{return(BOOL);}
 
 %%
 
+/* User Code Section */
 char *newstring(char *s)
 {
   char *p = malloc(strlen(s)+1);

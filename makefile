@@ -1,13 +1,13 @@
 all: lex yacc main
 
 lex:
-	flex -o table-lexer.c --header-file=table-lexer.h table-lexer.l
+	flex -o table-scanner.c --header-file=table-scanner.h table-scanner.l
 
 yacc:
 	bison -o table-parser.c table-parser.y
 
 main:
-	gcc main.c -o kjtablec table-lexer.c table-parser.c
+	gcc main.c -o kjtablec table-scanner.c table-parser.c
 
 clean:
-	rm -rf table-lexer.c table-lexer.h table-parser.c kjtablec
+	rm -rf table-scanner.c table-scanner.h table-parser.c kjtablec
