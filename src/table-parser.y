@@ -16,7 +16,7 @@
 %}
 
 /* Bison Declaration Section */
-%token PROGRAM END ID INTEGER STRING BOOLEAN TABLE AND OR EQUALS NEQUALS GET LET NOT JOIN PROJECT SELECT EXISTS ALL EXTEND UPDATE RENAME INTCONST STRCONST BOOLCONST IF THEN ELSE WHILE DO READ WRITE ERROR
+%token PROGRAM END ID INTEGER STRING BOOLEAN TABLE AND OR EQUALS NEQUALS GET LET NOT JOIN PROJECT SELECT EXISTS ALL EXTEND UPDATE RENAME INTCONST STRCONST BOOLCONST IF THEN ELSE WHILE DO READ WRITE ERROR DUMMY
 
 %%
 
@@ -28,11 +28,14 @@ stat_list   :	stat ';' stat_list { printf("Stat List 1\n"); }
 		      	| stat { printf("Stat List 2\n"); }
 			      ;
 
-stat        :	TABLE { printf("Statement!\n"); }
+stat        :	def_stat { printf("Statement!\n"); }
+            | dummy { printf("Statement!\n"); }
 			      ;
 
-specifier   : '[' stat ']'
-            |
+def_stat    :
+            ;
+
+dummy       : DUMMY { printf("Dummy!\n"); }
             ;
 
 %%

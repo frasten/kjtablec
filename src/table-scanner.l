@@ -73,6 +73,8 @@ while		{return(WHILE);}
 do			{return(DO);}
 read		{return(READ);}
 write		{return(WRITE);}
+	/* ONLY FOR DEBUG! DELETE HERE AND IN PARSER */
+dummy		{return(DUMMY);}
 id			{lexval.ival=1; return(ID);}
 . 			{return(ERROR);}
 
