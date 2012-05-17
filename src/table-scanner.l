@@ -5,6 +5,7 @@
 	#include "table-parser.h"
 	#include "table-def.h"
 
+	//Lexical variable
 	Lexval lexval;
 %}
 
@@ -22,16 +23,10 @@ id			{letter}({letter}|{digit})*
 %%
 
 	/* Rules Section */
+	/* reutrns the constant relative to the token and fills the lexval with appropriate attributes if needed */
 {ws}		;
-int			{return(INTEGER);}
-string 		{return(STRING);}
-boolean	 	{return(BOOLEAN);}
-{intconst}	{lexval.ival = atoi(yytext); return(INTCONST);}
-{strconst} 	{lexval.sval = newstring(yytext); return(STRCONST);}
-{boolconst} {lexval.ival = (yytext[0] == 'f' ? 0 : 1); return(BOOLCONST);}
-{id} 		{lexval.sval = newstring(yytext); return(ID);}
-=			{return(ASSIGN);}
-,			{return(COMMA);}
+program		{return(PROGRAM);}
+table		{return(TABLE);}
 ;			{return(SEMICOLON);}
 . 			{return(ERROR);}
 

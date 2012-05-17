@@ -1,11 +1,14 @@
 %{
 	/* Prologue */
     #include <stdio.h>
+    #include <string.h>
     #include "table-def.h"
+    
     extern Lexval lexval;
-    char *newstring(char *s);
+    
     int yylex(void);
     void yyerror(char *);
+    char *newstring(char *s);
 %}
 
 /* Bison Declaration Section */
@@ -14,14 +17,14 @@
 %%
 
 /* BNF Grammar Rules Section */
-program:	PROGRAM stat_list END { printf("%d\n", $2); }
+program:	PROGRAM stat_list END { printf("Program! %d\n", $2); }
 			;
 
-stat_list:	stat ';' stat_list { printf("%d\n", $2); }
+stat_list:	stat ';' stat_list { printf("Stat List %d\n", $2); }
 			|stat
 			;
 
-stat:		TABLE ';'
+stat:		TABLE ';' { printf("Statement!\n"); }
 			;
 
 %%
