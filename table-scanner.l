@@ -1,7 +1,5 @@
 %{
 	/* code block */
-	//table-def.h not needed when: yacc generated header is included instead.
-	//#include "table-def.h"
 
 	//yacc generated header
 	#include "table-parser.h"
@@ -37,9 +35,3 @@ boolean	 	{return(BOOLEAN);}
 %%
 
 /* User Code Section */
-char *newstring(char *s)
-{
-  char *p = malloc(strlen(s)+1);
-  strcpy(p,s);
-  return(p);
-}
