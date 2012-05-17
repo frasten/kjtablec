@@ -1,8 +1,9 @@
 %{
-/* code block */
-#include "table-def.h"
-Lexval lexval;
-char *newstring(char *s);
+	/* code block */
+	#include "table-def.h"
+	#include "table-parser.h"
+	Lexval lexval;
+	char *newstring(char *s);
 %}
 
 /* Definitions Section */
@@ -18,7 +19,7 @@ id			{letter}({letter}|{digit})*
 
 %%
 
-/* Rules Section */
+	/* Rules Section */
 {ws}		;
 int			{return(INT);}
 string 		{return(STR);}

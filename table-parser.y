@@ -1,10 +1,16 @@
 %{
+	/* Prologue */
     #include <stdio.h>
     int yylex(void);
     void yyerror(char *);
 %}
+
+/* Bison Declaration Section */
 %token INTEGER
+
 %%
+
+/* Grammar Rules Section */
 program:
         program expr '\n'
 { printf("%d\n", $2); }
@@ -13,7 +19,10 @@ program:
 { $$ = $1 - $3; }
 | ;
 expr:
+
 %%
+
+/* Epilogue: User Code Section */
 INTEGER
 | expr '+' expr
 | expr '-' expr
@@ -21,6 +30,3 @@ INTEGER
 void yyerror(char *s) {
     fprintf(stderr, "%s\n", s);
 }
-int main(void) {
-yyparse();
-return 0; }
