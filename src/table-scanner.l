@@ -3,6 +3,8 @@
 
 	//yacc generated header
 	#include "table-parser.h"
+
+	//global Table structures header
 	#include "table-def.h"
 
 	//Lexical variable
@@ -27,7 +29,8 @@ id			{letter}({letter}|{digit})*
 {ws}		;
 program		{return(PROGRAM);}
 table		{return(TABLE);}
-;			{return(SEMICOLON);}
+end			{return(END);}
+;			{return(';');}
 . 			{return(ERROR);}
 
 %%

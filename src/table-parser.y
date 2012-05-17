@@ -2,10 +2,14 @@
 	/* Prologue */
     #include <stdio.h>
     #include <string.h>
+
+    //global Table structures header
     #include "table-def.h"
-    
+
+    //Lexical variable: extern since it is declared in the scanner
     extern Lexval lexval;
     
+    //function declarations
     int yylex(void);
     void yyerror(char *);
     char *newstring(char *s);
@@ -17,15 +21,15 @@
 %%
 
 /* BNF Grammar Rules Section */
-program:	PROGRAM stat_list END { printf("Program! %d\n", $2); }
-			;
+program     : PROGRAM stat_list END { printf("Program! %d\n", $2); }
+		      	;
 
-stat_list:	stat ';' stat_list { printf("Stat List %d\n", $2); }
-			|stat
-			;
+stat_list   :	stat ';' stat_list { printf("Stat List %d\n", $2); }
+		      	| stat ';'
+			      ;
 
-stat:		TABLE ';' { printf("Statement!\n"); }
-			;
+stat        :	TABLE ';' { printf("Statement!\n"); }
+			      ;
 
 %%
 
