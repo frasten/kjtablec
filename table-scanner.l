@@ -1,9 +1,10 @@
 %{
 	/* code block */
-	#include "table-def.h"
+	//table-def.h not needed when: yacc generated header is included instead.
+	//#include "table-def.h"
+
+	//yacc generated header
 	#include "table-parser.h"
-	Lexval lexval;
-	char *newstring(char *s);
 %}
 
 /* Definitions Section */
@@ -21,9 +22,9 @@ id			{letter}({letter}|{digit})*
 
 	/* Rules Section */
 {ws}		;
-int			{return(INT);}
-string 		{return(STR);}
-boolean	 	{return(BOOL);}
+int			{return(INTEGER);}
+string 		{return(STRING);}
+boolean	 	{return(BOOLEAN);}
 {intconst}	{lexval.ival = atoi(yytext); return(INTCONST);}
 {strconst} 	{lexval.sval = newstring(yytext); return(STRCONST);}
 {boolconst} {lexval.ival = (yytext[0] == 'f' ? 0 : 1); return(BOOLCONST);}
