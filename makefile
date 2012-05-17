@@ -1,14 +1,14 @@
 all: clean yacc lex main
 
 clean:
-	rm -rf table-scanner.c table-parser.c table-parser.h kjtablec
+	rm -rf src/table-scanner.c src/table-parser.c src/table-parser.h bin/kjtablec
 
 #gnu bison section: -d option is to generate table-parser.h header file
 yacc:
-	bison -d -o table-parser.c table-parser.y
+	bison -d -o src/table-parser.c src/table-parser.y
 
 lex:
-	flex -o table-scanner.c table-scanner.l
+	flex -o src/table-scanner.c src/table-scanner.l
 
 main:
-	gcc main.c -o kjtablec table-scanner.c table-parser.c
+	gcc -o bin/kjtablec src/table-parser.c src/table-scanner.c src/main.c 
