@@ -3,6 +3,9 @@
 
 	//yacc generated header
 	#include "table-parser.h"
+	#include "table-def.h"
+
+	Lexval lexval;
 %}
 
 /* Definitions Section */
