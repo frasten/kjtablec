@@ -28,9 +28,52 @@ id			{letter}({letter}|{digit})*
 	/* reutrns the constant relative to the token and fills the lexval with appropriate attributes if needed */
 {ws}		;
 program		{return(PROGRAM);}
-table		{return(TABLE);}
 end			{return(END);}
 ;			{return(';');}
+,			{return(',');}
+integer		{return(INTEGER);}
+string		{return(STRING);}
+boolean		{return(BOOLEAN);}
+table		{return(TABLE);}
+\(			{return('(');}
+\)			{return(')');}
+=			{return('=');}
+and			{return(AND);}
+or			{return(OR);}
+==			{return(EQUALS);}
+!=			{return(NEQUALS);}
+>			{return('>');}
+>=			{return(GET);}
+\<			{return('<');}
+\<=			{return(LET);}
+\+			{return('+');}
+-			{return('-');}
+\*			{return('*');}
+\/			{return('/');}
+not			{return(NOT);}
+join		{return(JOIN);}
+\[			{return('[');}
+\]			{return(']');}
+project		{return(PROJECT);}
+select		{return(SELECT);}
+exists		{return(EXISTS);}
+all			{return(ALL);}
+extend		{return(EXTEND);}
+update		{return(UPDATE);}
+rename		{return(RENAME);}
+intconst	{lexval.ival=1; return(INTCONST);}
+strconst	{lexval.ival=1; return(STRCONST);}
+boolconst	{lexval.ival=1;return(BOOLCONST);}
+{			{return('{');}
+}			{return('}');}
+if			{return(IF);}
+then		{return(THEN);}
+else		{return(ELSE);}
+while		{return(WHILE);}
+do			{return(DO);}
+read		{return(READ);}
+write		{return(WRITE);}
+id			{lexval.ival=1; return(ID);}
 . 			{return(ERROR);}
 
 %%
