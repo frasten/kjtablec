@@ -21,14 +21,14 @@
 %%
 
 /* BNF Grammar Rules Section */
-program     : PROGRAM stat_list END { printf("Program! %d\n", $2); }
+program     : PROGRAM stat_list END { printf("Program!\n"); }
 		      	;
 
-stat_list   :	stat ';' stat_list { printf("Stat List %d\n", $2); }
-		      	| stat ';'
+stat_list   :	stat ';' stat_list { printf("Stat List 1\n"); }
+		      	| stat { printf("Stat List 2\n"); }
 			      ;
 
-stat        :	TABLE ';' { printf("Statement!\n"); }
+stat        :	TABLE { printf("Statement!\n"); }
 			      ;
 
 %%
