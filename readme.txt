@@ -8,8 +8,6 @@ First we look at the grammar EBNF for the langauge's terminals (those in bold) t
 
 As a general rule, single character terminals (e.g. ';') are not tokenized but are turned as is. As long as they're in the ASCII table there won't be any clashes in the coding.
 
-The lexval variable, holds attributes relative to the current token scanned by the lexer. Its content must be handled by the parser or will be lost and replaced with the next tokens' one.
-
 Then we specify the scanner: we need to generate the lex header file in order for main.c to access the scanner's shared variables.
 
 The binary or unary of operator - is decided by the parser, the token returned by the scanner is always the same.
