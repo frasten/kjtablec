@@ -3,6 +3,9 @@
     #include <stdio.h>
     #include <string.h>
 
+    //lex generated header
+    #include "table-scanner.h"
+
     //global Table structures header
     #include "table-def.h"
 
@@ -196,5 +199,5 @@ write_stat  : WRITE specifier expr          { printf("write_stat\n"); }
 
 /* Epilogue: User Code Section */
 void yyerror(char *s) {
-    fprintf(stderr, "%s\n", s);
+    fprintf(stderr, "%s %d\n", s, yylineno);
 }
