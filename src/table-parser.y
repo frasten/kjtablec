@@ -198,5 +198,5 @@ write_stat  : WRITE specifier expr          { printf("write_stat\n"); }
 
 /* Epilogue: User Code Section */
 void yyerror(char *s) {
-    fprintf(stderr, "%s %d\n", s, yylineno);
+    fprintf(stderr, "HOLY GUACAMOLE! We've got a %s at line number %d\n", s, yylineno);
 }

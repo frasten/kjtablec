@@ -16,6 +16,7 @@
 
 /* Definitions Section */
 %option noyywrap
+%option yylineno
 blank		[ \t\n]
 ws		 	{blank}+
 letter		[A-Za-z]
