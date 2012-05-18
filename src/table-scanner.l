@@ -1,14 +1,14 @@
 %{
-/* code block */
+	/* code block */
 
-//yacc generated header
-#include "table-parser.h"
+	//yacc generated header
+	#include "table-parser.h"
 
-//global Table structures header
-#include "table-def.h"
+	//global Table structures header
+	#include "table-def.h"
 
-//Lexical variable
-Lexval lexval;
+	//Lexical variable
+	Lexval lexval;
 %}
 
 /* Definitions Section */

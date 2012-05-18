@@ -1,5 +1,5 @@
 %{
-	/* Prologue */
+    /* Prologue */
     #include <stdio.h>
     #include <string.h>
 
