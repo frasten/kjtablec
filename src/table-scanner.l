@@ -63,7 +63,7 @@ update		{return(UPDATE);}
 rename		{return(RENAME);}
 intconst	{lexval.ival=1; return(INTCONST);}
 strconst	{lexval.ival=1; return(STRCONST);}
-boolconst	{lexval.ival=1;return(BOOLCONST);}
+boolconst	{lexval.ival=1; return(BOOLCONST);}
 {			{return('{');}
 }			{return('}');}
 if			{return(IF);}
