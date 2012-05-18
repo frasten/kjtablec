@@ -143,8 +143,8 @@ update_op   : UPDATE '[' ID '=' expr ']'    { printf("update_op\n"); }
 rename_op   : RENAME '[' id_list ']'        { printf("rename_op\n"); }
             ;
 
-constant    : atomic_const                  { printf("atomic_const\n"); }
-            | table_const                   { printf("atomic_const\n"); }
+constant    : atomic_const                  { printf("constant\n"); }
+            | table_const                   { printf("constant\n"); }
             ;
 
 atomic_const: INTCONST                      { printf("atomic_const\n"); }
