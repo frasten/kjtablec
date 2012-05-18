@@ -10,4 +10,4 @@ As a general rule, single character terminals (e.g. ';') are not tokenized but a
 
 Then we specify the scanner: we need to generate the lex header file and include it in the parser in order for it to access the scanner's shared variables and interfaces.
 
-The binary or unary of operator '- is decided by the parser, the token returned by the scanner is always the same.
+The binary or unary of operator '-' is decided by the parser, the token returned by the scanner is always the same.
