@@ -13,7 +13,6 @@
     extern Lexval lexval;
     
     //function declarations
-    int yylex(void);
     void yyerror(char *);
 %}
 
