@@ -1,14 +1,14 @@
 %{
-	/* code block */
+/* code block */
 
-	//yacc generated header
-	#include "table-parser.h"
+//yacc generated header
+#include "table-parser.h"
 
-	//global Table structures header
-	#include "table-def.h"
+//global Table structures header
+#include "table-def.h"
 
-	//Lexical variable
-	Lexval lexval;
+//Lexical variable
+Lexval lexval;
 %}
 
 /* Definitions Section */
@@ -25,7 +25,7 @@ id			{letter}({letter}|{digit})*
 %%
 
 	/* Rules Section */
-	/* reutrns the constant relative to the token and fills the lexval with appropriate attributes if needed */
+	/* returns the constant relative to the token and fills the lexval with appropriate attributes if needed */
 {ws}		;
 program		{return(PROGRAM);}
 end			{return(END);}
@@ -73,8 +73,7 @@ while		{return(WHILE);}
 do			{return(DO);}
 read		{return(READ);}
 write		{return(WRITE);}
-	/* ONLY FOR DEBUG! DELETE HERE AND IN PARSER */
-dummy		{return(DUMMY);}
+dummy		{return(DUMMY);}				/* ONLY FOR DEBUG! DELETE HERE AND IN PARSER */
 id			{lexval.ival=1; return(ID);}
 . 			{return(ERROR);}
 
