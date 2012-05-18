@@ -1,4 +1,4 @@
-THIS PROGRAM IS LICENSED UNDER GNU GPLv3 LICENSE.
+THIS PROGRAM IS LICENSED UNDER [GNU GPLv3 LICENSE](http://www.gnu.org/licenses/gpl-3.0.txt).
 
 AUTHOR: Marco Romano (https://github.com/julioromano/kjtablec)
 
