@@ -43,9 +43,9 @@ or			{return(OR);}
 ==			{return(EQUALS);}
 !=			{return(NEQUALS);}
 >			{return('>');}
->=			{return(GET);}
+>=			{return(GTE);}
 \<			{return('<');}
-\<=			{return(LET);}
+\<=			{return(LTE);}
 \+			{return('+');}
 -			{return('-');}
 \*			{return('*');}
@@ -73,7 +73,6 @@ while		{return(WHILE);}
 do			{return(DO);}
 read		{return(READ);}
 write		{return(WRITE);}
-dummy		{return(DUMMY);}				/* ONLY FOR DEBUG! DELETE HERE AND IN PARSER */
 id			{lexval.ival=1; return(ID);}
 . 			{return(ERROR);}
 
