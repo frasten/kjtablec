@@ -9,6 +9,9 @@
 
 	//Lexical variable
 	Lexval lexval;
+
+	//user functions declarations
+    char *newstring(char *s);
 %}
 
 /* Definitions Section */
@@ -61,9 +64,9 @@ all			{return(ALL);}
 extend		{return(EXTEND);}
 update		{return(UPDATE);}
 rename		{return(RENAME);}
-intconst	{lexval.ival=1; return(INTCONST);}
-strconst	{lexval.ival=1; return(STRCONST);}
-boolconst	{lexval.ival=1; return(BOOLCONST);}
+intconst	{lexval.ival = atoi(yytext); return(INTCONST);}
+strconst	{lexval.sval = newstring(yytext); return(STRCONST);}
+boolconst	{lexval.ival = (yytext[0] == 'f') ? 0 : 1; return(BOOLCONST);}
 {			{return('{');}
 }			{return('}');}
 if			{return(IF);}
@@ -73,9 +76,15 @@ while		{return(WHILE);}
 do			{return(DO);}
 read		{return(READ);}
 write		{return(WRITE);}
-id			{lexval.ival=1; return(ID);}
+id			{lexval.sval = newstring(yytext); return(ID);}
 . 			{return(ERROR);}
 
 %%
 
 /* User Code Section */
+char *newstring(char *s)
+{
+  char *p = malloc(strlen(s)+1);
+  strcpy(p,s);
+  return(p);
+}

@@ -12,7 +12,6 @@
     //function declarations
     int yylex(void);
     void yyerror(char *);
-    char *newstring(char *s);
 %}
 
 /* Bison Declaration Section */
@@ -198,11 +197,4 @@ write_stat  : WRITE specifier expr          { printf("write_stat\n"); }
 /* Epilogue: User Code Section */
 void yyerror(char *s) {
     fprintf(stderr, "%s\n", s);
-}
-
-char *newstring(char *s)
-{
-  char *p = malloc(strlen(s)+1);
-  strcpy(p,s);
-  return(p);
 }
